@@ -16,7 +16,7 @@ public class HG_PlayerMovement : MonoBehaviour
     private bool isGrounded;
     void Start()
     {
-        
+        Physics.gravity = new Vector3(0, -30, 0);
     }
 
 
@@ -41,4 +41,8 @@ public class HG_PlayerMovement : MonoBehaviour
             player_Rigidbody.velocity += new Vector3(0f, jumpForce, 0f);
         }
     }
+
+
+
 }
+
