@@ -116,8 +116,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb95ffec2c6e4434bac7746b4b19f65a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pause_Manager: {fileID: 0}
+  woPausirIch: {fileID: 0}
   player_Rigidbody: {fileID: 7158185766969260714}
-  movespeed: 10
+  movespeed: 3.8
   jumpForce: 15
   palyer_WhatIsGround:
     serializedVersion: 2

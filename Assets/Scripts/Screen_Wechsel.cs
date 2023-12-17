@@ -7,10 +7,14 @@ using UnityEngine.SceneManagement;
 public class Screen_Wechsel : MonoBehaviour
 {
     public string naesterScreen;
-    public GameObject player, mainKamera;
+    public GameObject player, mainKamera, manager;
     public WoPausirIch woPausirIch;
     //public Animator transition;
 
+    public void Awake ()
+    {
+        reffisFuellen();
+    }
     
     public void setNaecsterScreen(string pNaesterScreen)
     {
@@ -24,8 +28,7 @@ public class Screen_Wechsel : MonoBehaviour
     IEnumerator LadeSzeneMitPause()
     {
         //Refferenzen bekommen
-        player = GameObject.Find("IsAktiveManager");
-        woPausirIch = player.GetComponent<WoPausirIch>();
+        reffisFuellen();
         //mainKamera = GameObject.Find("CM vcam1");
         //transition = mainKamera.GetComponent<Animator>();
         //if (mainKamera == null)
@@ -39,9 +42,10 @@ public class Screen_Wechsel : MonoBehaviour
         woPausirIch.playerIsAktive = true;
     }
 
-    public void refferenzenFuellen(GameObject pPaler, string pScreen)
+    public void reffisFuellen ()
     {
-        player = pPaler;
-        naesterScreen = pScreen;
+        manager = GameObject.Find("IsAktiveManager");
+        woPausirIch = manager.GetComponent<WoPausirIch>();
     }
+    
 }
