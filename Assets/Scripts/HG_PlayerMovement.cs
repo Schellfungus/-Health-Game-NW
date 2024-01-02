@@ -8,8 +8,8 @@ using UnityEngine;
 public class HG_PlayerMovement : MonoBehaviour
 {
 
-    public GameObject pause_Manager; //Simeon
-    public WoPausirIch woPausirIch; //Simeon
+   // public GameObject pause_Manager; //Simeon
+   // public WoPausirIch woPausirIch; //Simeon
 
     public Rigidbody player_Rigidbody;
     public float movespeed, jumpForce;
@@ -23,19 +23,31 @@ public class HG_PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        pause_Manager = GameObject.Find("IsAktiveManager"); //Simeon
-        woPausirIch = pause_Manager.GetComponent<WoPausirIch>(); //Simeon
+        //pause_Manager = GameObject.Find("IsAktiveManager"); //Simeon
+        //woPausirIch = pause_Manager.GetComponent<WoPausirIch>(); //Simeon
         Physics.gravity = new Vector3(0, -30, 0);
+        jumpForce = 10f;
+        moveOnStart();
+
+
+
     }
+
+    void moveOnStart()
+    {
+        transform.position = new Vector3(-6, 40, 10);
+      
+    }
+
 
 
     void Update()
     {
-        woPausirIch = pause_Manager.GetComponent<WoPausirIch>(); //Simeon
-        if (woPausirIch.playerIsAktive == true)
-        { 
+        // woPausirIch = pause_Manager.GetComponent<WoPausirIch>(); //Simeon
+        //if (woPausirIch.playerIsAktive == true)
+       // { 
             Bewegung();
-        }
+      //  }
        
     }
     void Bewegung()
@@ -49,15 +61,17 @@ public class HG_PlayerMovement : MonoBehaviour
 
             RaycastHit hit;
 
-            if (Physics.Raycast(groundPoint.position, Vector3.down, out hit, 2f, palyer_WhatIsGround))
+            if (Physics.Raycast(groundPoint.position, Vector3.down, out hit, 2f))
             {
+                    
                 isGrounded = true;
-            }
+            } 
             else { isGrounded = false; }
 
             if (Input.GetButtonDown("Jump") && isGrounded)
             {
                 player_Rigidbody.velocity += new Vector3(0f, jumpForce, 0f);
+                Debug.Log("h");
             }
         
         
