@@ -21,7 +21,7 @@ public class HG_PlayerMovement : MonoBehaviour
     private bool isGrounded;
     
 
-    void Start()
+    void Awake()
     {
         //pause_Manager = GameObject.Find("IsAktiveManager"); //Simeon
         //woPausirIch = pause_Manager.GetComponent<WoPausirIch>(); //Simeon
