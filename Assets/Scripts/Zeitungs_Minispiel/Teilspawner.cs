@@ -1,23 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Simeon
 public class Teilspawner : MonoBehaviour
 {
+    public Sprite [] moeglicheTeile;
+
     public GameObject[] puzzleteil,container;
     public GameObject puzzlePrefab, feldPrefab;
-    public int anzahlPuzzleTeile = 5;
+    public int anzahlPuzzleTeile = 14;
     public Puzzleteil_Bewegung teilscript;
     public bool win;
     //Vector3 puzzleStelle
     // Start is called before the first frame update
     public void Awake()
     {
-        Debug.Log("ja ja");
 
         puzzlePrefab = GameObject.Find("ZeitungsTeil");
         feldPrefab = GameObject.Find("Containerfeld");
 
+        
         puzzleteil = new GameObject[anzahlPuzzleTeile];
         container = new GameObject[anzahlPuzzleTeile];
 
@@ -27,7 +29,8 @@ public class Teilspawner : MonoBehaviour
 
             puzzleteil[i] = Instantiate(puzzlePrefab, new Vector3(71.7f, 3.34f, 97.4f), Quaternion.identity);
             teilscript = puzzleteil[i].GetComponent<Puzzleteil_Bewegung>();
-            teilscript.container = container[i];                  
+            teilscript.container = container[i];
+            teilscript.sailorMoonTransformation(moeglicheTeile[i]);
         }
     }
 
