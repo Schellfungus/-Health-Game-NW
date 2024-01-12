@@ -1,0 +1,92 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class Hg_DoorsScript : MonoBehaviour
+{
+
+    public Transform targetEmptyObject; // Das leere GameObject, auf das die Kamera gesetzt werden soll
+    public Transform playerSpawnPoint;
+    public Text interactionText;
+    private bool isPlayerNearDoor;
+
+    private bool hatSchluessel;
+
+    private void Start()
+    {
+
+        if (interactionText != null)
+        {
+            interactionText.enabled = false;
+        }
+
+        isPlayerNearDoor= false;
+        hatSchluessel= false;
+           
+    }
+    private void Update()
+    {
+        if (hatSchluessel == true && isPlayerNearDoor && Input.GetKeyDown(KeyCode.E))
+        {
+            InteractWithDoor(); 
+        }
+    }
+
+    private void InteractWithDoor()
+    {
+        SetPlayerToSpawnPoint();
+        SwitchCamera();
+        ShowInteractionText(false);
+
+    }
+
+    public void setzeSchluessel(bool phatSchluessel)
+    {
+        hatSchluessel = phatSchluessel;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isPlayerNearDoor = true;
+            ShowInteractionText(true);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isPlayerNearDoor = false;
+            ShowInteractionText(false);
+        }
+    }
+
+    private void ShowInteractionText(bool show)
+    {
+        if (interactionText != null)
+            interactionText.enabled = show;
+    }
+
+    private void SwitchCamera()
+    {
+        Camera.main.transform.parent = targetEmptyObject; // Die Kamera auf das leere GameObject setzen
+        Camera.main.transform.localPosition = Vector3.zero;
+        Camera.main.transform.localRotation = Quaternion.identity;
+
+    }
+
+    private void SetPlayerToSpawnPoint()
+    {
+        // Setze den Spieler an die bestimmte Position
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null && playerSpawnPoint != null)
+        {
+            player.transform.position = playerSpawnPoint.position;
+            
+        }
+    }
+
+}
