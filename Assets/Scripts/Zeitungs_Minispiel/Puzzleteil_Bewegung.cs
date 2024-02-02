@@ -5,7 +5,7 @@ using UnityEngine;
 public class Puzzleteil_Bewegung : MonoBehaviour
 {
     public GameObject teilchen, container;
-    public bool ambewegen, imFeld, touchi_touchi;
+    public bool ambewegen, touchi_touchi;
     public Vector3 mausPos;
 
     private float startPosX, startPosZ;
@@ -63,10 +63,10 @@ public class Puzzleteil_Bewegung : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == container)
-        {
-            imFeld = true;
-        }
+     // if (other.gameObject == container)
+     // {
+       //   imFeld = true;
+      //}
         if (other.gameObject.CompareTag("Zeitungsteil"))
         {
             touchi_touchi = true;
@@ -76,10 +76,10 @@ public class Puzzleteil_Bewegung : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == container)
-        {
-            imFeld = false;
-        }
+      //if (other.gameObject == container)
+      //{
+        //  imFeld = false;
+      //}
         if (other.gameObject.CompareTag("Zeitungsteil"))
         {
             touchi_touchi = false;
@@ -87,10 +87,10 @@ public class Puzzleteil_Bewegung : MonoBehaviour
         
     }
 
-    public bool getImFeld()
-    {
-        return imFeld;
-    }
+ // public bool getImFeld()
+  //{
+    //  return imFeld;
+ // }
 
     public bool getTouchi_Touchi()
     { return touchi_touchi; }

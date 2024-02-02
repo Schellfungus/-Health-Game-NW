@@ -378,8 +378,26 @@ MonoBehaviour:
   container: []
   puzzlePrefab: {fileID: 1695558367899712530, guid: ad24ac8cb5958c04ea45c0279191d834, type: 3}
   feldPrefab: {fileID: 3211183156682484137, guid: 6ba8eb9528e3aa54c8b5cd4b1b7ca57d, type: 3}
+  Kamera: {fileID: 0}
   anzahlPuzzleTeile: 14
+  teilpositionen:
+  - {x: 96.31824, y: 3, z: 72.03996}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
   teilscript: {fileID: 0}
+  conscript: {fileID: 0}
+  immerFeld: {fileID: 0}
   win: 0
 --- !u!1001 &683738814
 PrefabInstance:
@@ -669,7 +687,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3211183156682484133, guid: 6ba8eb9528e3aa54c8b5cd4b1b7ca57d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 41.2
+      value: 102
       objectReference: {fileID: 0}
     - target: {fileID: 3211183156682484133, guid: 6ba8eb9528e3aa54c8b5cd4b1b7ca57d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -677,7 +695,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3211183156682484133, guid: 6ba8eb9528e3aa54c8b5cd4b1b7ca57d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -254
+      value: -182
       objectReference: {fileID: 0}
     - target: {fileID: 3211183156682484133, guid: 6ba8eb9528e3aa54c8b5cd4b1b7ca57d, type: 3}
       propertyPath: m_LocalRotation.w
