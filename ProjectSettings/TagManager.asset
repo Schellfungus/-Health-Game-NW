@@ -6,6 +6,15 @@ TagManager:
   tags:
   - Zeitungsteil
   - Footsteps
+  - Winkel1
+  - Winkel2
+  - Winkel3
+  - PlayerPos1
+  - PlayerPos2
+  - PlayerPos3
+  - Antworten
+  - PlayerPosMAin
+  - CameraMain
   layers:
   - Default
   - TransparentFX

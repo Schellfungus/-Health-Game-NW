@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,7 +9,7 @@ public class Hg_DoorsScript : MonoBehaviour
 
     public Transform targetEmptyObject; // Das leere GameObject, auf das die Kamera gesetzt werden soll
     public Transform playerSpawnPoint;
-    public Text interactionText;
+    public TextMeshProUGUI interactionText;
     private bool isPlayerNearDoor;
 
     private bool hatSchluessel;
@@ -18,13 +19,14 @@ public class Hg_DoorsScript : MonoBehaviour
 
         if (interactionText != null)
         {
+            interactionText.text = "Verschlossen. Ich sollte mich nach einem Schlüssel umsehen";
             interactionText.enabled = false;
         }
 
         isPlayerNearDoor= false;
         hatSchluessel= false;
            
-    }
+    }   
     private void Update()
     {
         if (hatSchluessel == true && isPlayerNearDoor && Input.GetKeyDown(KeyCode.E))
@@ -41,9 +43,10 @@ public class Hg_DoorsScript : MonoBehaviour
 
     }
 
-    public void setzeSchluessel(bool phatSchluessel)
+    public void setzeSchluessel(bool phatSchluessel, string pText)
     {
         hatSchluessel = phatSchluessel;
+        interactionText.text = pText;
     }
 
     private void OnTriggerEnter(Collider other)

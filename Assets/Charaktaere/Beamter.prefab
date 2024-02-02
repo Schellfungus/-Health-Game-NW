@@ -42,11 +42,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8467357958336449041}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 3.5713818, y: 1, z: 3.5307865}
+  m_Center: {x: -0.097525, y: 0, z: 0.7623348}
 --- !u!114 &4357091513899393524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,8 +121,8 @@ MonoBehaviour:
   skipBarkIfNoValidEntries: 0
   cacheBarkLines: 0
   conversation: New Conversation 1
-  conversationConversant: {fileID: 0}
-  conversationActor: {fileID: 1961444884467227033}
+  conversationConversant: {fileID: 1961444884467227033}
+  conversationActor: {fileID: 0}
   startConversationEntryID: -1
   startConversationEntryTitle: 
   exclusive: 0

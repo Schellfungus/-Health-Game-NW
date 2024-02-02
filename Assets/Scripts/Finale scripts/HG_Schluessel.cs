@@ -21,8 +21,8 @@ public class HG_Schluessel : MonoBehaviour
     {
         if (inTrigger == true && Input.GetKeyDown(KeyCode.E))
         {
-            Tuer1.GetComponent<Hg_DoorsScript>().setzeSchluessel(true);
-            Tuer2.GetComponent<Hg_DoorsScript>().setzeSchluessel(true);
+            Tuer1.GetComponent<Hg_DoorsScript>().setzeSchluessel(true,"Drücke e zum Verlassen");
+            Tuer2.GetComponent<Hg_DoorsScript>().setzeSchluessel(true,"Drücke e zum Eintreten ");
 
             this.gameObject.SetActive(false);   
         }
