@@ -16,7 +16,6 @@ public class Teilspawner : MonoBehaviour
     public ContainerZaehler conscript;
 
     public ContainerZaehler immerFeld;
-    public bool win;
     //Vector3 puzzleStelle
     // Start is called before the first frame update
     public void Awake()
@@ -74,13 +73,13 @@ public class Teilspawner : MonoBehaviour
             //Kontrolle nach Variablen
             teilscript = puzzleteil[i].GetComponent<Puzzleteil_Bewegung>();
             immerFeld = container[i].GetComponent<ContainerZaehler>();
-            if (immerFeld.imFeld== true && teilscript.touchi_touchi == true)
+            if (immerFeld.imFeld == true && teilscript.touchi_touchi == true)
             {
             anzahlRichtige++;
             }
             if (anzahlRichtige == anzahlPuzzleTeile)
             {
-            win = true;
+                Debug.Log("Winn");
             }
         }
     }
