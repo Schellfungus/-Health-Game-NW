@@ -15,6 +15,10 @@ TagManager:
   - Antworten
   - PlayerPosMAin
   - CameraMain
+  - HG_OnSceneLoad
+  - HG_PlayerPosBurgermeister
+  - HG_CameraPosBurgermeister
+  - ProgressBar
   layers:
   - Default
   - TransparentFX

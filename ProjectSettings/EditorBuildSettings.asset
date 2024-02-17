@@ -6,12 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Transititon_1.unity
-    guid: 39e2ab284fea1ae41a668e294c85af8b
-  - enabled: 1
     path: Assets/Scenes/Final Screens/Health.unity
     guid: c49815e190d9bb246a1f64d33b684884
   - enabled: 1
     path: Assets/Scenes/Final Screens/BauerBernd.unity
     guid: 2e778dd7e7b80814f928e9dc32ba13dd
+  - enabled: 1
+    path: Assets/Scenes/Final Screens/Im_Rathaus.unity
+    guid: 878f12fa0183a434b88b207387075f91
+  - enabled: 1
+    path: Assets/Scenes/Final Screens/newone.unity
+    guid: af0c3178c142b6b4eaae165dd652a0fc
+  - enabled: 1
+    path: "Assets/Scenes/Final Screens/B\xFCrgermeister.unity"
+    guid: 097d3944a17ad7043867bf2738012012
+  - enabled: 1
+    path: Assets/Scenes/Minispiele/Zeitung_Puzzle.unity
+    guid: e74bc868ddae52f498d11399a59f71b2
   m_configObjects: {}

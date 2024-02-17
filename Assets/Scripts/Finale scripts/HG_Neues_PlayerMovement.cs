@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using static UnityEditor.Experimental.GraphView.GraphView;
+using UnityEngine.SceneManagement;
 
 public class HG_Neues_PlayerMovement : MonoBehaviour
 {
@@ -14,6 +16,26 @@ public class HG_Neues_PlayerMovement : MonoBehaviour
     private bool canJump = true;
 
      [SerializeField] private GameObject footsteps;
+
+    private static HG_Neues_PlayerMovement diesess;
+
+
+    private void Awake()
+    {
+        if (diesess == null)
+        {
+            diesess = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else Destroy(gameObject);
+    }
+
+
+
+
+
+
+
 
     void Start()
     {
