@@ -6,26 +6,37 @@ using PixelCrushers.DialogueSystem;
 public class HG_NPC_Script : MonoBehaviour
 {
 
-    [SerializeField] Vector3 woSollIchHin;
-    private bool debug = false;
+   
+
+    private Animator npcAnimator;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
+        npcAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (debug == false &&  QuestLog.GetQuestState("MainQuest") != QuestState.Unassigned)
-        {
-            bewegeDich();
-        }
+        
     }
 
-    private void bewegeDich()
+    
+
+
+    public void OnTriggerEnter(Collider other)
     {
-        transform.position = woSollIchHin;
-        debug = true;
+        if (other.CompareTag("Player") && transform.rotation.y == 0)
+        {
+
+            npcAnimator.SetTrigger("NPCFlipper");
+
+        }
+     
+
     }
+
 }

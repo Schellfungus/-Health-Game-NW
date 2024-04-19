@@ -79,7 +79,10 @@ public class Teilspawner : MonoBehaviour
             }
             if (anzahlRichtige == anzahlPuzzleTeile)
             {
-                Debug.Log("Winn");
+
+               
+                 
+
             }
         }
     }

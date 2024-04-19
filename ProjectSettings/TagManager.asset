@@ -19,6 +19,16 @@ TagManager:
   - HG_PlayerPosBurgermeister
   - HG_CameraPosBurgermeister
   - ProgressBar
+  - Bush
+  - bernd
+  - aufheben
+  - AufhebManager
+  - berndImHaus
+  - ID1
+  - ID2
+  - ID3
+  - ID4
+  - BackgroundCanvas
   layers:
   - Default
   - TransparentFX

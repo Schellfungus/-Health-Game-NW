@@ -12,6 +12,8 @@ public class Hg_DoorsScript : MonoBehaviour
     public TextMeshProUGUI interactionText;
     private bool isPlayerNearDoor;
 
+    
+
     private bool hatSchluessel;
 
     private void Start()
@@ -19,7 +21,7 @@ public class Hg_DoorsScript : MonoBehaviour
 
         if (interactionText != null)
         {
-            interactionText.text = "Verschlossen. Ich sollte mich nach einem Schlüssel umsehen";
+            
             interactionText.enabled = false;
         }
 

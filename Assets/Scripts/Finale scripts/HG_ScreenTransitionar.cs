@@ -12,7 +12,9 @@ public class HG_ScreenTransitionar : MonoBehaviour
     public int spawnErkennerCheker;
 
     public Transform playerSpawnPos;
-    public Transform CameraSpawnPos;   
+    public Transform CameraSpawnPos;
+
+    
 
    
 
@@ -42,11 +44,14 @@ public class HG_ScreenTransitionar : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
-       
+
+             
             _Loader.LadeSzene(_var);
             Debug.Log("Hey");
-        
+
+          
+
 
     }
+    
 }

@@ -138,6 +138,7 @@ GameObject:
   m_Component:
   - component: {fileID: 162517774}
   - component: {fileID: 162517773}
+  - component: {fileID: 1304629660}
   m_Layer: 0
   m_Name: SpielerFertig
   m_TagString: Untagged
@@ -212,6 +213,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1304629660
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162517772}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 471ff838bd1998a4e9cd25ed4e0e3ca9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7158185766969260715
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,6 +252,7 @@ GameObject:
   - component: {fileID: 5227890403244591907}
   - component: {fileID: 2766112671971219254}
   - component: {fileID: 1081242318}
+  - component: {fileID: 393793977}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -479,6 +502,8 @@ MonoBehaviour:
   jumpForce: 10
   jumpCooldown: 0.5
   footsteps: {fileID: 0}
+  anim: {fileID: 1304629660}
+  spRe: {fileID: 162517773}
 --- !u!65 &5227890403244591907
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -554,6 +579,27 @@ MonoBehaviour:
   onDeselectedUsable:
     m_PersistentCalls:
       m_Calls: []
+--- !u!95 &393793977
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7158185766969260715}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0f55429aa039ca14b9a7484d3a8ddf01, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7158185768200707289
 GameObject:
   m_ObjectHideFlags: 0

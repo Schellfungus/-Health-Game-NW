@@ -1,18 +1,65 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class ContainerZaehler : MonoBehaviour
 {
     public bool imFeld;
-    private void OnTriggerEnter(Collider other)
+    public string achtenAuf;
+    public static int Zaeheler = 0;
+    private bool bugFixes = true;
+
+    public static DragAndDropMinigame DandDM;
+
+    private static int methodenzaehelr;
+
+    private void Awake()
     {
-        imFeld = true;
+        DandDM = GameObject.FindGameObjectWithTag("AufhebManager").GetComponent<DragAndDropMinigame>();
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.name == achtenAuf && !imFeld && DandDM.selectedObject == null)
+        {
+            imFeld = true;
+            Zaeheler++;
+        }
     }
     private void OnTriggerExit(Collider other)
     {
-        imFeld = false;
+        if (other.gameObject.name == achtenAuf && imFeld)
+        {
+            imFeld = false;
+            Zaeheler--;
+        }
     }
+    private void Update()
+    {
+        if(Zaeheler == 14 && bugFixes)
+        {
+            gewinner();
+            bugFixes = false;
+        }
+    }
+    public static void gewinner()
+    {
+
+        methodenzaehelr++;
+
+        if(methodenzaehelr == 14)
+        {
+            Debug.Log("winnerwinner chiken dinner0");
+           
+            DandDM.gewonnen();
+
+        }
+    }
+
+
+
+
     public void sailormoonUndSo(Sprite look)
     {
         this.gameObject.GetComponent<SpriteRenderer>().sprite = look;

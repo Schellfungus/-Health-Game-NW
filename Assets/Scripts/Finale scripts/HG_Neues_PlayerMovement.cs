@@ -19,6 +19,17 @@ public class HG_Neues_PlayerMovement : MonoBehaviour
 
     private static HG_Neues_PlayerMovement diesess;
 
+    public Animator anim;
+
+    private bool movingBackwards = false;
+
+    public SpriteRenderer spRe;
+
+    private Animator flip;
+
+
+
+  
 
     private void Awake()
     {
@@ -28,13 +39,9 @@ public class HG_Neues_PlayerMovement : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
         else Destroy(gameObject);
+
+        flip = gameObject.GetComponent<Animator>();
     }
-
-
-
-
-
-
 
 
     void Start()
@@ -60,24 +67,68 @@ public class HG_Neues_PlayerMovement : MonoBehaviour
         Vector3 moveVelocity = moveDirection * moveSpeed;
         rb.velocity = new Vector3(-moveVelocity.x, rb.velocity.y, -moveVelocity.z);
 
+        anim.SetFloat("moveSpeed",rb.velocity.magnitude);
+
         // Springen
         if (canJump && Input.GetButtonDown("Jump"))
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             canJump = false;
+            anim.SetBool("Jumped", true);
             StartCoroutine(JumpCooldown());
         }
-        if(Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d"))
+
+        if(!spRe.flipX && horizontalInput < 0)
         {
-            ActiveFootsteos();
-        }
-        if (Input.GetKeyUp("w") || Input.GetKeyUp("a") || Input.GetKeyUp("s") || Input.GetKeyUp("d"))
-        {
-            DeaktiveFootsteps();
-        }
+
+           
+                flip.SetTrigger("Flipper");
 
 
+
+            if (GameObject.Find("BAuerBerndP") == null)
+            {
+                spRe.flipX = true;
+            }
+            else spRe.flipX = false;
+
+        }
+        else if(spRe.flipX && horizontalInput > 0)
+               {
+
+                 
+                    flip.SetTrigger("Flipper");
+              
+            
+                if(GameObject.Find("BAuerBerndP") == null)
+                  {
+                spRe.flipX = false;
+
+                  } else spRe.flipX = true;
+
+
+
+
+
+               }
+
+
+        if (!movingBackwards && verticalInput > 0)
+        {
+            movingBackwards = true;
+
+        }else if(movingBackwards && verticalInput < 0)
+                {
+
+                       movingBackwards = false;
+                 }
+
+        anim.SetBool("movingBackwards", movingBackwards);
+        
+               
     }
+    
+  
 
     IEnumerator ActiveFootsteos()
     {
@@ -91,6 +142,13 @@ public class HG_Neues_PlayerMovement : MonoBehaviour
     IEnumerator JumpCooldown()
     {
         yield return new WaitForSeconds(jumpCooldown);
+        anim.SetBool("Jumped", false);
         canJump = true;
+
+    
     }
+
+    
+
+   
 }

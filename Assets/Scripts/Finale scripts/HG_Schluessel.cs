@@ -23,8 +23,8 @@ public class HG_Schluessel : MonoBehaviour
         {
             Tuer1.GetComponent<Hg_DoorsScript>().setzeSchluessel(true,"Drücke e zum Verlassen");
             Tuer2.GetComponent<Hg_DoorsScript>().setzeSchluessel(true,"Drücke e zum Eintreten ");
-
-            this.gameObject.SetActive(false);   
+                
+            this.gameObject.SetActive(false);       
         }
     }
 }

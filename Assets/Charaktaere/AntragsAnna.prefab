@@ -52,8 +52,7 @@ MonoBehaviour:
     questConditions: []
     acceptedTags:
     - Player
-    acceptedGameObjects:
-    - {fileID: 0}
+    acceptedGameObjects: []
     luaWizardIndex: -1
     lastEvaluationValue: 0
   setQuestState: 1
