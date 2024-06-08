@@ -13,7 +13,7 @@ public class HG_MainDoorScript : MonoBehaviour
     public string First_Message;
     private bool isPlayerNearDoor;
 
-    private int vErtraege;
+    private int dialogeImRathaus;
 
     private void Start()
     {
@@ -32,7 +32,7 @@ public class HG_MainDoorScript : MonoBehaviour
     private void Update()
     {
         
-        if (vErtraege == 2 && isPlayerNearDoor && Input.GetKeyDown(KeyCode.E))
+        if (dialogeImRathaus == 2 && isPlayerNearDoor && Input.GetKeyDown(KeyCode.E))
         {
             InteractWithDoor();
         }
@@ -56,7 +56,7 @@ public class HG_MainDoorScript : MonoBehaviour
             isPlayerNearDoor = true;
             ShowInteractionText(true);
         }
-        vErtraege = DialogueLua.GetVariable("ImRatHausReden").asInt;
+        dialogeImRathaus = DialogueLua.GetVariable("ImRatHausReden").asInt;
     }
 
     private void OnTriggerExit(Collider other)

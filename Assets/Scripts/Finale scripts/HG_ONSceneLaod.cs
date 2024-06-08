@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 
 public class HG_ONSceneLaod : MonoBehaviour
@@ -39,6 +38,7 @@ public class HG_ONSceneLaod : MonoBehaviour
 
     public GameObject backgroundCanvas;
 
+    private bool ersterLoad = true;
     public void ernte()
     {
         geerntet = true;
@@ -46,6 +46,11 @@ public class HG_ONSceneLaod : MonoBehaviour
     public bool gibErnte()
     {
         return geerntet;
+    }
+    IEnumerator keineernte()
+    {
+        yield return new WaitForSeconds(0.4f);
+        geerntet = false;
     }
     private void Awake()    
     {
@@ -79,7 +84,6 @@ public class HG_ONSceneLaod : MonoBehaviour
         {
             animationAmAnfang = false;
 
-
         }
 
         while (_progressBar.fillAmount < 0.9f && scene.progress < 0.9)
@@ -103,6 +107,9 @@ public class HG_ONSceneLaod : MonoBehaviour
 
         _Player = GameObject.FindGameObjectWithTag("Player");
         playerTransform = _Player.GetComponent<Transform>();
+
+
+      
     }
 
  
@@ -155,6 +162,7 @@ public class HG_ONSceneLaod : MonoBehaviour
         if(SzenenName == "Zeitung_Puzzle")
         {
             LadeScene("Zeitung_Puzzle");
+            geerntet = true;
         }
     }
 
@@ -169,7 +177,9 @@ public class HG_ONSceneLaod : MonoBehaviour
         if (spawnErkenner == 4 && geerntet)
         {
             _Player.transform.position = new Vector3(-37.866f, 1.406f, 19.446f);
-          
+            StartCoroutine(keineernte());
+
+
         }
         else
         {
@@ -205,10 +215,23 @@ public class HG_ONSceneLaod : MonoBehaviour
    {
         int i = (int)Random.Range(0, 4);
         backgroundCanvas.GetComponent<Image>().sprite = texturen[i];
-        int e = (int)Random.Range(0, 4);
+        int e = (int)Random.Range(0, 4  );
         _progressBar.GetComponent<Image>().sprite = charakterTexturen[e];   
     }
 
-    
+
+
+    public void ersterloade(GameObject FirstWinkel, GameObject FirstSpawnPoint)
+    {
+        if (ersterLoad == true)
+        {
+
+
+            ersterLoad = false;
+            BewegeSpielerUndCamera(FirstSpawnPoint.transform, FirstWinkel.transform);
+        }
+    }
+
+
 
 }

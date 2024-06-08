@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using static UnityEditor.Experimental.GraphView.GraphView;
 using UnityEngine.SceneManagement;
 
 public class HG_Neues_PlayerMovement : MonoBehaviour
@@ -113,15 +112,15 @@ public class HG_Neues_PlayerMovement : MonoBehaviour
                }
 
 
-        if (!movingBackwards && verticalInput > 0)
+        if (verticalInput > 0)
         {
             movingBackwards = true;
 
-        }else if(movingBackwards && verticalInput < 0)
-                {
+        }else if(verticalInput == 0)
+        {
 
                        movingBackwards = false;
-                 }
+        }
 
         anim.SetBool("movingBackwards", movingBackwards);
         

@@ -1971,7 +1971,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7480677296065517893, guid: 1db706e1bcff71340b4fecb37e1abd26, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 440345771}
+    - target: {fileID: 7480677296065517893, guid: 1db706e1bcff71340b4fecb37e1abd26, type: 3}
       propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480677296065517893, guid: 1db706e1bcff71340b4fecb37e1abd26, type: 3}
+      propertyPath: m_PixelPerfect
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7480677296065517893, guid: 1db706e1bcff71340b4fecb37e1abd26, type: 3}
@@ -1980,6 +1988,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7480677296065517893, guid: 1db706e1bcff71340b4fecb37e1abd26, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480677296065517894, guid: 1db706e1bcff71340b4fecb37e1abd26, type: 3}
+      propertyPath: m_PresetInfoIsWorld
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7480677296065518008, guid: 1db706e1bcff71340b4fecb37e1abd26, type: 3}
