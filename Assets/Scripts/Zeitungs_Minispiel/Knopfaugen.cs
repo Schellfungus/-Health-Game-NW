@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//Simeon
+
 public class Knopfaugen : MonoBehaviour
 {
     public bool neustart = false;
