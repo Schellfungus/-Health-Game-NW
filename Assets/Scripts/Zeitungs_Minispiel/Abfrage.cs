@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+//Simeon
 public class Abfrage : MonoBehaviour
 {
     public GameObject text, textFR, sanSalvador;
@@ -17,6 +17,7 @@ public class Abfrage : MonoBehaviour
     public float timerA;
     public bool spielenWir = true, gewonnen;
     // Start is called before the first frame update
+    //Simeon
     void Awake()
     {
         text = GameObject.Find("DisplayUI");
@@ -37,8 +38,12 @@ public class Abfrage : MonoBehaviour
         if (timerA >0)
         {
             timerA -= Time.deltaTime;
-            timerA = Mathf.Round(timerA * 100.0f) * 0.01f;
-            timerB.text = timerA.ToString();
+            //Debug.Log( timerA);
+            // Ensure the timer never goes below 0
+            timerA = Mathf.Max(0f, timerA);
+            // = Mathf.Round(timerA * 100.0f) * 0.01f;
+
+            timerB.text = timerA.ToString("F0");
 
 
             if (Input.GetKeyDown(aktuelleTaste))
