@@ -31,22 +31,15 @@ public class HG_ScreenTransitionar : MonoBehaviour
 
         if(_Loader.getSpawnErkenner() == spawnErkennerCheker)
         {
-            Debug.Log("nein"+this.name);
-            
-            
-            
-                StartCoroutine(bewegespielerundcamera());
-            
-
+            _Loader.BewegeSpielerUndCamera(playerSpawnPos, CameraSpawnPos); 
         }
 
-    }
 
-    IEnumerator bewegespielerundcamera()
-    {
-        yield return new WaitForSeconds(0.4f);
-        _Loader.BewegeSpielerUndCamera(playerSpawnPos.transform, CameraSpawnPos.transform);
-        Debug.Log("ja" + this.name);
+
+
+
+
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -54,7 +47,11 @@ public class HG_ScreenTransitionar : MonoBehaviour
 
              
             _Loader.LadeSzene(_var);
+            Debug.Log("Hey");
+
           
+
+
     }
     
 }

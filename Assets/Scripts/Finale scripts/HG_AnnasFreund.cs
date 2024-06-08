@@ -6,17 +6,13 @@ public class HG_AnnasFreund : MonoBehaviour
 {
 
     private GameObject bush;
-    private bool bushher = true;
+
     private void Awake()
     {
         bush = GameObject.FindGameObjectWithTag("Bush");
-        bush.SetActive(bushher);
     }
     public void wegMitDemBusch()
     {
-        bushher = false;
-        Debug.Log("" + bushher);
-        bush.transform.position = new Vector3(1000, 10001, 1000);
-
+        bush.SetActive(false);  
     }
 }

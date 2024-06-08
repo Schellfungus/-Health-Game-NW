@@ -1,97 +1,97 @@
-    using System.Collections;
-    using System.Collections.Generic;
-    using TMPro;
-    using UnityEngine;
-    using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
 
-    public class Hg_DoorsScript : MonoBehaviour
+public class Hg_DoorsScript : MonoBehaviour
 {
 
-        public Transform targetCameraPosition; // Das leere GameObject, auf das die Kamera gesetzt werden soll
-        public Transform playerSpawnPoint;
-        public TextMeshProUGUI interactionText;
-        private bool isPlayerNearDoor;
+    public Transform targetEmptyObject; // Das leere GameObject, auf das die Kamera gesetzt werden soll
+    public Transform playerSpawnPoint;
+    public TextMeshProUGUI interactionText;
+    private bool isPlayerNearDoor;
 
     
 
-        public bool hatSchluessel;
+    private bool hatSchluessel;
 
-        private void Start()
+    private void Start()
+    {
+
+        if (interactionText != null)
         {
-
-            if (interactionText != null)
-            {
             
-                interactionText.enabled = false;
-            }
+            interactionText.enabled = false;
+        }
 
-            isPlayerNearDoor= false;
-        
+        isPlayerNearDoor= false;
+        hatSchluessel= false;
            
-        }   
-        private void Update()
+    }   
+    private void Update()
+    {
+        if (hatSchluessel == true && isPlayerNearDoor && Input.GetKeyDown(KeyCode.E))
         {
-            if (hatSchluessel == true && isPlayerNearDoor && Input.GetKeyDown(KeyCode.E))
-            {
-                InteractWithDoor(); 
-            }
+            InteractWithDoor(); 
         }
+    }
 
-        private void InteractWithDoor()
-        {
-            SetPlayerToSpawnPoint();
-            SwitchCamera();
-            ShowInteractionText(false);
-
-        }
-
-        public void setzeSchluessel(bool phatSchluessel, string pText)
-        {
-            hatSchluessel = phatSchluessel;
-            interactionText.text = pText;
-        }
-
-        private void OnTriggerEnter(Collider other)
-        {
-            if (other.CompareTag("Player"))
-            {
-                isPlayerNearDoor = true;
-                ShowInteractionText(true);
-            }
-        }
-
-        private void OnTriggerExit(Collider other)
-        {
-            if (other.CompareTag("Player"))
-            {
-                isPlayerNearDoor = false;
-                ShowInteractionText(false);
-            }
-        }
-
-        private void ShowInteractionText(bool show)
-        {
-            if (interactionText != null)
-                interactionText.enabled = show;
-        }
-
-        private void SwitchCamera()
-        {
-            Camera.main.transform.parent = targetCameraPosition; // Die Kamera auf das cameraPosition GameObject setzen
-            Camera.main.transform.localPosition = Vector3.zero;
-            Camera.main.transform.localRotation = Quaternion.identity;
-
-        }
-
-        private void SetPlayerToSpawnPoint()
-        {
-            // Setze den Spieler an die bestimmte Position
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            if (player != null && playerSpawnPoint != null)
-            {
-                player.transform.position = playerSpawnPoint.position;
-            
-            }
-        }
+    private void InteractWithDoor()
+    {
+        SetPlayerToSpawnPoint();
+        SwitchCamera();
+        ShowInteractionText(false);
 
     }
+
+    public void setzeSchluessel(bool phatSchluessel, string pText)
+    {
+        hatSchluessel = phatSchluessel;
+        interactionText.text = pText;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isPlayerNearDoor = true;
+            ShowInteractionText(true);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isPlayerNearDoor = false;
+            ShowInteractionText(false);
+        }
+    }
+
+    private void ShowInteractionText(bool show)
+    {
+        if (interactionText != null)
+            interactionText.enabled = show;
+    }
+
+    private void SwitchCamera()
+    {
+        Camera.main.transform.parent = targetEmptyObject; // Die Kamera auf das leere GameObject setzen
+        Camera.main.transform.localPosition = Vector3.zero;
+        Camera.main.transform.localRotation = Quaternion.identity;
+
+    }
+
+    private void SetPlayerToSpawnPoint()
+    {
+        // Setze den Spieler an die bestimmte Position
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null && playerSpawnPoint != null)
+        {
+            player.transform.position = playerSpawnPoint.position;
+            
+        }
+    }
+
+}
