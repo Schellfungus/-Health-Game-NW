@@ -16,8 +16,12 @@ public class Abfrage : MonoBehaviour
     public int punkteUso;
     public float timerA;
     public bool spielenWir = true, gewonnen;
+    bool keineRückehr;
     // Start is called before the first frame update
     //Simeon
+
+
+    public HG_BB_Minispiel_wiezenbombem animationes;
     void Awake()
     {
         text = GameObject.Find("DisplayUI");
@@ -30,6 +34,7 @@ public class Abfrage : MonoBehaviour
         //text.getChild().GetComponent<TextMeshPro - text UI> () = 1;
 
         anfang();
+        keineRückehr = true;
     }
 
     // Update is called once per frame
@@ -50,6 +55,7 @@ public class Abfrage : MonoBehaviour
             {
                 punkteUso++;
                 bisschenWuerfeln();
+                animationes.Weizenpfluecken();
             }
             else for (int i = 0; i < 8; i++)
                 {
@@ -85,6 +91,14 @@ public class Abfrage : MonoBehaviour
             anfang();
             langeNase.neustart = false;
         }
+
+        
+
+        if (keineRückehr == true && gewonnen == true && timerA == 0)
+        {
+            animationes.gewonnenener();
+            keineRückehr = false;
+        }
     } 
 
     public void bisschenWuerfeln()
@@ -92,13 +106,14 @@ public class Abfrage : MonoBehaviour
         aktuelleTaste = moeglicheTasten[Random.Range(0, 9)];
         display.text = aktuelleTaste;
         puZaehler.text = punkteUso.ToString();
+
     }
 
     public void anfang()
     {
         langeNase.verstecken(false);
         bisschenWuerfeln();
-        timerA = 60;
+        timerA = 30;
     }
      
 }

@@ -6,7 +6,7 @@ public class HG_AnnasFreund : MonoBehaviour
 {
 
     private GameObject bush;
-    private bool bushher = true;
+    private static bool bushher = true;
     private void Awake()
     {
         bush = GameObject.FindGameObjectWithTag("Bush");

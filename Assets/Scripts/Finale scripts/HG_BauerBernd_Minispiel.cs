@@ -28,7 +28,7 @@ public class HG_BauerBernd_Minispiel : MonoBehaviour
 
          onSceneLoader = GameObject.FindGameObjectWithTag("HG_OnSceneLoad").GetComponent<HG_ONSceneLaod>();
          GameObject bernd = GameObject.FindGameObjectWithTag("bernd");
-        GameObject berndImHAus = GameObject.FindGameObjectWithTag("berndImHaus");
+         GameObject berndImHAus = GameObject.FindGameObjectWithTag("berndImHaus");
 
         if (onSceneLoader != null && onSceneLoader.gibErnte())
         {
@@ -46,6 +46,7 @@ public class HG_BauerBernd_Minispiel : MonoBehaviour
     public void starteMinispiel()
     {
         Debug.Log("hss");
+        onSceneLoader.LadeSzene("Bernd_Reaktion");
         schlieﬂeAuf();
     }
 

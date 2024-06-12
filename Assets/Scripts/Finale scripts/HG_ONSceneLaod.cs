@@ -39,6 +39,8 @@ public class HG_ONSceneLaod : MonoBehaviour
     public GameObject backgroundCanvas;
 
     private bool ersterLoad = true;
+
+    private bool esterminispiel = false;
     public void ernte()
     {
         geerntet = true;
@@ -137,6 +139,13 @@ public class HG_ONSceneLaod : MonoBehaviour
             playerTransform.rotation = new Quaternion(Quaternion.identity.x, Quaternion.identity.y, 180, Quaternion.identity.w);
             LadeScene("Bürgermeister");
         }
+        if (SzenenName == "bBmini")
+        {
+            spawnErkenner = 8;
+            playerTransform.rotation = new Quaternion(Quaternion.identity.x, Quaternion.identity.y, 180, Quaternion.identity.w);
+            LadeScene("Bürgermeister");
+        }
+
         if (SzenenName == "rathaus")
         {
             spawnErkenner = 1;
@@ -163,6 +172,11 @@ public class HG_ONSceneLaod : MonoBehaviour
         {
             LadeScene("Zeitung_Puzzle");
             geerntet = true;
+        }
+        if (SzenenName == "Bernd_Reaktion")
+        {
+            LadeScene("Bernd_Reaktion");
+            
         }
     }
 

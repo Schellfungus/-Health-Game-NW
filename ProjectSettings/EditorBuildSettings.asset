@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Minispiele/Zeitung_Puzzle.unity
     guid: e74bc868ddae52f498d11399a59f71b2
+  - enabled: 1
+    path: Assets/Scenes/Minispiele/Bernd_Reaktion.unity
+    guid: 02486aea8990a704fa6e3b1c916bc428
   m_configObjects: {}

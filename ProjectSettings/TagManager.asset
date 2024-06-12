@@ -29,6 +29,7 @@ TagManager:
   - ID3
   - ID4
   - BackgroundCanvas
+  - WEIZENMINISPIEL
   layers:
   - Default
   - TransparentFX
